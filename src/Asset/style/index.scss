@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
+@import url('https://v1.fontapi.ir/css/Shabnam:400');
+:root{
+  font-size: 62.5%; //1rem =10px
+}
+*,*::after,*::before{
+   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ol,ul{
+  list-style: none;
+}
+button,input,form{
+  font-family: inherit;
+}
+textarea{
+  resize: none;
+}
+body{
+  font-family: 'Shabnam', 'PT Serif', serif,sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: normal;
+  display: grid;
+  grid-template-areas:  'aside nav nav'
+                        'aside main main'
+                        'aside main main';
+                        
+grid-template-columns: 250px repeat(2,1fr);
+grid-template-rows: 60px auto auto;
+
+}
+.Sidebar{
+  grid-area: aside;
+  background-color: aqua;
+}
+.Navbar{
+  grid-area: nav;
+  background-color: dodgerblue;
+}
+.Content{
+  grid-area: main;
+  background-color: darkcyan;
+}
