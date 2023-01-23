@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://v1.fontapi.ir/css/Shabnam:400');
+@import './Mixin';
+@import './Component';
 :root{
   font-size: 62.5%; //1rem =10px
 }
@@ -18,28 +20,37 @@ textarea{
   resize: none;
 }
 body{
-  font-family: 'Shabnam', 'PT Serif', serif,sans-serif;
+  font-family: 'Shabnam', 'Open Sans';
   font-size: 1.6rem;
   font-weight: normal;
   line-height: normal;
-  display: grid;
+  color: $primery-Color;
+}
+.container{
+    display: grid;
+  height: 100vh;
   grid-template-areas:  'aside nav nav'
                         'aside main main'
-                        'aside main main';
-                        
-grid-template-columns: 250px repeat(2,1fr);
-grid-template-rows: 60px auto auto;
-
+                        'aside main main';                       
+grid-template-columns: 320px repeat(2,1fr);
+grid-template-rows: 70px repeat(2,1fr);
+background-color: $bg-body;
+gap: 15px;
+padding: 15px;
 }
 .Sidebar{
   grid-area: aside;
-  background-color: aqua;
+  @extend %bg-color;
 }
 .Navbar{
   grid-area: nav;
-  background-color: dodgerblue;
+  display: grid;
+  grid-template-columns: 78% 20%;
+  column-gap: 2%;
+  align-items: center;
+  padding-top: 10px;
 }
 .Content{
   grid-area: main;
-  background-color: darkcyan;
+  @extend %bg-color;
 }

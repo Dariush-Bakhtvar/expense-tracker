@@ -1,9 +1,10 @@
 import React from 'react'
 import './Asset/style/App.scss';
+import Navbar from './Components/Navbar/Navbar';
 const App = () => {
   return (
     <>
-      <div className='Navbar'>test</div>
+      <Navbar />
       <div className='Content'>test</div>
       <div className='Sidebar'>test</div>
     </>

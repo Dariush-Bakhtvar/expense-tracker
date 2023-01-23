@@ -1,0 +1,15 @@
+$bg-body:#F2FAFE;
+$whait:#fff;
+$border-color:#F7F0F5;
+$primery-Blue:#625BC9;
+$primery-gray:#A9B0C5;
+$primery-Color:#3B3B61;
+
+%bg-color{
+  background-color: $whait;
+}
+@mixin Flex($justify,$align){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}

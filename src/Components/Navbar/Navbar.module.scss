@@ -1,0 +1,93 @@
+@import '../../Asset/style/Mixin';
+.Navigation,.Profile{
+  @extend %bg-color;
+  height: 60px;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  font-size: 1.4rem;
+}
+.Navigation{
+  ul{
+    width: 100%;
+    height: 100%;
+    @include Flex(flex-start,center);
+    color: $primery-gray;
+  li{ 
+      height: inherit;
+      width: auto;
+      margin: 0 15px;
+      cursor: pointer;
+    @include Flex(center,center);
+     transition: color .5s ease-in-out;
+      &:first-child{
+        color: $primery-Blue;
+        border-bottom: 3px solid $primery-Blue;
+      }
+      &:hover{
+        color: $primery-Blue;
+        transition: color .5s ease-in-out;
+      }
+    }
+  }
+}
+.Profile{
+  position: relative;
+}
+.ProfileBtnMenu{
+  width: 100%;
+  height: inherit;
+@include Flex(space-around,center);
+cursor: pointer;
+color:$primery-Color;
+img{
+  border-radius: 50%;
+  padding: 2px;
+width: 37px;
+height: 37xp;
+border: 1px solid $border-color;
+}
+svg{
+  font-size: 2rem;
+}
+}
+.SubMenu{
+  position: absolute;
+  top: 65px;
+  right: 0;
+  width: 100%;
+  height: 120px;
+ 
+  transition: color 0.5s ease-in-out;
+  border: 1px solid $border-color;
+  @include Flex(space-around,flex-start);
+  flex-direction: column;
+  font-size: inherit;
+  @extend %bg-color;
+color: $primery-Color;
+li{
+  width: 100%;
+  height: 50px;
+  @include Flex(flex-start,center);
+  transition: all 0.5s ease-in-out;
+  padding: 0 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+    span{
+      &:nth-child(1){
+        font-size: 1.8rem;
+        margin-right:10px ;
+      }
+      &:nth-child(2){
+        font-size: 1.3rem;
+      }
+    }
+    &:hover{
+      color: $primery-Blue;
+      background:#eee;
+      transition: all 0.5s ease-in-out;
+    }
+    &:last-child{
+      border-bottom: none;
+    }
+    }
+}
