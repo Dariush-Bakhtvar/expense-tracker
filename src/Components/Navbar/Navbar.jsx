@@ -3,7 +3,7 @@ import style from './Navbar.module.scss';
 import { BiChevronDown } from 'react-icons/bi';
 import { AiFillGithub, AiFillSetting, AiOutlineLogout } from 'react-icons/ai';
 const Navbar = () => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const toggleHandler = () => {
     console.log(toggle);
     setToggle(!toggle);

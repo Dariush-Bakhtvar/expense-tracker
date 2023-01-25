@@ -1,0 +1,132 @@
+@import '../../Asset/style/Mixin';
+.SearchBar{
+width: 100%;
+height: 70px;
+border-bottom: 1px solid $border-color;
+@include Flex(flex-end,center);
+padding: 0 20px;
+form{
+  width: 250px;
+  height: 30px;
+}
+}
+.SearchWrapper{
+width: 100%;
+height: 100%;
+position: relative;
+margin-left: 5px;
+input[type='text']{
+  width: 100%;
+  height: 100%;
+  padding-left: 35px;
+  border:2px solid $primery-gray;
+  border-radius: 3px;
+  transition: border .5s ease-in-out;
+  color: $primery-Blue;
+&::placeholder{
+  color: #A9B0C5;
+}
+&:focus{
+  outline: none;
+  border: 2px solid $primery-Blue;
+   transition: border .5s ease-in-out;
+   + span{
+    color:$primery-Blue;
+     transition: color .5s ease-in-out;
+  }
+}
+}
+span{
+  @extend %Flex-Center;
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  top:0;
+  color: $primery-gray;
+   transition: color .5s ease-in-out;
+}
+}
+%btn-style{
+  width: 30px;
+  height: 30px;
+  font-size: 2.2rem;
+  // background-color: rgba($color: $border-color, $alpha: 0.6);
+  background-color: #F8F9FB;
+  margin: 0 4px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+.Notification{
+@extend %btn-style;
+   span{
+    &:nth-child(1){
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #c95b72;
+      position: absolute;
+      right: 6px;
+      top: 8px;
+      border:2px solid #fff;
+    }
+    &:nth-child(2){
+      width: 100%;
+      height: 100%;
+      @extend %Flex-Center;
+  }
+  }
+}
+.DarkMode{
+  @extend %btn-style;
+  font-size:2rem;
+}
+.SwitchBtn{
+   width: 100%;
+    height: 100%;
+   @extend %Flex-Center;
+   position: relative;
+   overflow: hidden;
+  //  &:hover{
+  //   span{
+  //     &:nth-child(1){
+  //       transform: translateY(-100%);
+  //       opacity: 0;
+  //     }
+  //     &:nth-child(2){
+  //            transform: translateY(0);
+  //            color: gold;
+  //               opacity: 1;
+  //     }
+  //   }
+  //  }
+   span{
+    position: absolute;
+    top:22%;
+    left: 16%;
+    &:nth-child(1){
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 1.5s ease-in-out;
+      
+      }
+    &:nth-child(2){
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 1.4s ease-in-out;
+    }
+   }
+  }
+  .ActiveDarkMode{
+  span{
+        &:nth-child(1){
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        &:nth-child(2){
+               transform: translateY(0);
+               color: gold;
+                  opacity: 1;
+        }
+      }
+  }

@@ -1,0 +1,147 @@
+@import '../../Asset/style/Mixin';
+.WellcomeMassage{
+width: 100%;
+height: 70px;
+@include Flex(space-between,center);
+padding: 0 15px;
+}
+.TextInfo{
+  line-height: 1.6;
+  h4{
+    text-transform: capitalize;
+  }
+  p{
+    color: $primery-gray;
+    font-size: 1.3rem;
+  }
+}
+.newBudgetBtn{
+    all: unset;
+    width: 150px;
+    height: 40px;
+    background-color:  $primery-Blue;
+    font-size: 1.3rem;
+    font-weight: inherit;
+    color: $border-color;
+    @include Flex(space-around,center);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.6s;
+    span{
+      &:nth-child(2){
+        font-size: 2rem;
+          display: flex;
+      }
+    }
+    &:hover{
+     background-color: transparent;
+     border: 1px solid $primery-Blue;
+     color: $primery-Blue;
+    transition: all 0.6s;
+    }
+  }
+.TransactionChart{
+  width: 100%;
+  height: 80%;
+  padding-top: 15px;
+  display: grid;
+  // direction: rtl;
+  grid-template-areas: 'DetailChart asideChart'
+  'DetailChart asideChart';
+  grid-template-columns: 65% 35%;
+  grid-template-rows: 1fr 1fr;
+}
+.sideChart{
+  grid-area: asideChart;
+  margin-left:20px;
+  padding: 0 15px;
+}
+.DetailChart{
+   grid-area: DetailChart;
+}
+//toto bodget style
+.totoalBudget{
+  width: 290px;
+  height: 140px;
+    box-shadow: $box-shadow;
+    border-radius: 4px;
+    overflow: hidden;
+    button{
+      height: 25%;
+      width: 100%;
+      background-color: $primery-Blue;
+      border: none;
+      cursor: pointer;
+      color: $border-color;
+      @include Flex(space-between,center);
+      padding: 0 15px;
+      
+    }
+}
+.totoalBudgetInfo{
+  height: 75%;
+  position: relative;
+  @include Flex(space-around,center);
+  padding: 0 15px;
+  span{
+    @extend %Flex-Center;
+    width: 35px;
+    height: 35px;
+    font-size: 2rem;
+    background-color: #F8F9FB;
+    border-radius: 4px;
+    color: #21CC9E;
+    align-self: baseline;
+    margin-top: 20px;
+  }
+
+}
+.totoalBudgetDetail{
+  line-height: 1.48;
+  p{
+    color: $primery-gray;
+    font-weight: 300 !important;
+    &:nth-child(1){
+      font-size: 1.4rem;
+    }
+    &:nth-child(3){
+      font-size: 1.2rem;
+    }
+  }
+}
+.DetailBudget{
+  @include Flex(space-between,center);
+  width: 100%;
+  padding-left: 20px;
+}
+.NoneBtnBg{
+  border-top: 1px solid $border-color !important;
+  background-color: transparent !important;
+  color: $primery-gray !important;
+  transition: color 0.5s ease-in-out;
+  &:hover{
+    color: $primery-Blue !important;
+    transition: color 0.5s ease-in-out;
+  }
+}
+
+%common_titlestyel{
+  width: 90px;
+display: flex;
+justify-content: center;
+border-radius: 3px;
+padding-top: 2px;
+}
+.colorRed{
+  color: #FF708B !important;
+}
+.IncomeText{
+color: #21CC9E !important;
+background: #d9f3e9;
+@extend %common_titlestyel;
+}
+.ExpenseText{
+  color: #FF708B !important;
+ background: #fbe7eb;
+ @extend %common_titlestyel;
+}

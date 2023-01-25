@@ -4,7 +4,7 @@ $border-color:#F7F0F5;
 $primery-Blue:#625BC9;
 $primery-gray:#A9B0C5;
 $primery-Color:#3B3B61;
-
+$box-shadow:2px 2px 4px #f5f4f4, -2px -2px 4px #f5f4f4;
 %bg-color{
   background-color: $whait;
 }
@@ -12,4 +12,7 @@ $primery-Color:#3B3B61;
   display: flex;
   justify-content: $justify;
   align-items: $align;
+}
+%Flex-Center{
+  @include Flex(center,center);
 }
