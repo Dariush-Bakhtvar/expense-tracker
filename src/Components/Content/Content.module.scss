@@ -3,11 +3,11 @@
 width: 100%;
 height: 70px;
 @include Flex(space-between,center);
-padding: 0 15px;
+// padding: 0 15px;
 }
 .TextInfo{
   line-height: 1.6;
-  h4{
+  h3{
     text-transform: capitalize;
   }
   p{
@@ -40,21 +40,29 @@ padding: 0 15px;
     transition: all 0.6s;
     }
   }
-.TransactionChart{
+.TotalTransanction{
+   width: 100%;
+  height: 100vh;
+  // padding-top: 15px;
+  // display: grid;
+  // // direction: rtl;
+  // grid-template-areas: 'DetailChart asideChart'
+  // 'DetailChart asideChart';
+  // grid-template-columns: 65% 35%;
+  // grid-template-rows: 1fr 1fr;
+  @include Flex(flex-start,center);
+  flex-direction: column;
+}
+.TransactionBox{
+ 
+  @include Flex(space-between,center);
   width: 100%;
-  height: 80%;
-  padding-top: 15px;
-  display: grid;
-  // direction: rtl;
-  grid-template-areas: 'DetailChart asideChart'
-  'DetailChart asideChart';
-  grid-template-columns: 65% 35%;
-  grid-template-rows: 1fr 1fr;
+  height: 150px;
 }
 .sideChart{
   grid-area: asideChart;
   margin-left:20px;
-  padding: 0 15px;
+  // padding: 0 15px;
 }
 .DetailChart{
    grid-area: DetailChart;
@@ -63,6 +71,7 @@ padding: 0 15px;
 .totoalBudget{
   width: 290px;
   height: 140px;
+  border:1px solid $border-color;
     box-shadow: $box-shadow;
     border-radius: 4px;
     overflow: hidden;
@@ -74,7 +83,7 @@ padding: 0 15px;
       cursor: pointer;
       color: $border-color;
       @include Flex(space-between,center);
-      padding: 0 15px;
+      // padding: 0 15px;
       
     }
 }
@@ -82,7 +91,7 @@ padding: 0 15px;
   height: 75%;
   position: relative;
   @include Flex(space-around,center);
-  padding: 0 15px;
+  // padding: 0 15px;
   span{
     @extend %Flex-Center;
     width: 35px;
@@ -112,7 +121,7 @@ padding: 0 15px;
 .DetailBudget{
   @include Flex(space-between,center);
   width: 100%;
-  padding-left: 20px;
+  // padding-left: 20px;
 }
 .NoneBtnBg{
   border-top: 1px solid $border-color !important;
@@ -144,4 +153,32 @@ background: #d9f3e9;
   color: #FF708B !important;
  background: #fbe7eb;
  @extend %common_titlestyel;
+}
+//  charts 
+.TransactionCharts{
+width: 100%;
+height: 250px;
+@include Flex(space-between,center);
+// flex-direction: row-reverse;
+margin:5% 0;
+}
+.totoalChart{
+  width: 30%;
+  height: 100%;
+  @include Flex(center,center);
+ border: 1px solid $border-color;
+ box-shadow: $box-shadow;
+ position: relative;
+ border-radius: 4px;
+ 
+}
+.DetailHistogram {
+  width: 65%;
+    height: 100%;
+  border: 1px solid $border-color;
+  box-shadow: $box-shadow;
+  border-radius: 4px;
+  canvas{
+    width: 100% !important;
+  }
 }

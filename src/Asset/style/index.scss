@@ -1,6 +1,8 @@
 // @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://v1.fontapi.ir/css/Shabnam:400');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import './Mixin';
 @import './Component';
 :root{
@@ -21,20 +23,21 @@ textarea{
   resize: none;
 }
 body{
-  font-family: 'Shabnam', 'Open Sans';
+  font-family: 'Source Sans Pro','Shabnam', sans-serif;
   font-size: 1.6rem;
   font-weight: normal;
   line-height: normal;
   color: $primery-Color;
+  //  height: 100vh;
 }
 .container{
     display: grid;
-  height: 100vh;
+  height: auto;
   grid-template-areas:  'aside nav nav'
                         'aside main main'
                         'aside main main';                       
-grid-template-columns: 320px repeat(2,1fr);
-grid-template-rows: 70px repeat(2,1fr);
+grid-template-columns: 320px repeat(2,auto);
+grid-template-rows: 70px repeat(2,auto);
 background-color: $bg-body;
 gap: 15px;
 padding: 15px;
@@ -54,4 +57,5 @@ padding: 15px;
 .Content{
   grid-area: main;
   @extend %bg-color;
+  padding: 0 20px;
 }

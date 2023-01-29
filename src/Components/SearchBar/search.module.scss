@@ -4,7 +4,7 @@ width: 100%;
 height: 70px;
 border-bottom: 1px solid $border-color;
 @include Flex(flex-end,center);
-padding: 0 20px;
+padding: 0 4px;
 form{
   width: 250px;
   height: 30px;
