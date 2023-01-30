@@ -5,20 +5,24 @@ import style from './Content.module.scss';
 import { Doughnut, Line } from "react-chartjs-2";
 import { Chart, ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend, } from "chart.js";
 import { HiPlusSm, HiOutlineChevronDoubleRight } from 'react-icons/hi';
-import { FiArrowDownRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiArrowDownRight, FiArrowUpRight } from 'react-icons/fi';
+import { TfiMoreAlt } from 'react-icons/tfi';
+import { IoFilterOutline } from 'react-icons/io5';
 Chart.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 export const options = {
   responsive: true,
   plugins: {
     legend: {
       display: '',// hiden chart title
-      position: 'left'
+      position: 'left',
     },
     tooltip: {
       enabled: true,
       intersect: false,
       mode: 'nearest',
       yAlign: 'bottom',
+      titleColor: '#3B3B61',
+      bodyColor: '#3B3B61',
       callbacks: {
         labelColor: function (tooltipItem, chart) {
           return {
@@ -26,9 +30,13 @@ export const options = {
           }
         },
       },
-      backgroundColor: 'rgba(0,0,0,0.7)',
+      backgroundColor: 'rgb(255,255,255)',
     },
     title: {
+      // display: '',
+      fontFamily: 'Source Sans Pro',
+      fontSize: 15,
+      color: '#3B3B61',
       display: true,// hiden chart title
       text: 'Daily Analytics',
       position: 'top',
@@ -40,9 +48,7 @@ export const options = {
     },
   },
 };
-
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
 const Linedata = {
   labels,
   datasets: [
@@ -54,6 +60,9 @@ const Linedata = {
       // labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
       borderColor: '#625BC9',
       backgroundColor: '#625bc917',
+      pointBackgroundColor: '#FFF',
+      pointRadius: 4,
+      pointHoverRadius: 4
     },
   ],
 };
@@ -156,17 +165,38 @@ const Content = ({ isDark, onChangeTheme }) => {
                 responsive: true
               }}
             />
-            <div
-              style={{
-                position: "absolute",
-                top: "55%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                textAlign: "center"
-              }}
-            >
-              <div>Text Here</div>
+            <div className={style.totalChartHeader}>
+              <p>Total Chart</p>
+              <span>
+                <TfiMoreAlt />
+              </span>
             </div>
+            <div className={style.totoalChartInfo}>
+              <p>Total Budget</p>
+              <p>54589</p>
+            </div>
+            <div className={style.totalChartPrice}>
+              <div>
+                <span>income</span>
+                <p>1500</p>
+              </div>
+              <div>
+                <span>expence</span>
+                <p>2700</p>
+              </div>
+              <div>
+                <span>Total</span>
+                <p>1000</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className={style.TransactionList}>
+          <div className={style.TransactionListTitle}>
+            <h4>Transaction List</h4>
+            <span>
+              <IoFilterOutline />
+            </span>
           </div>
         </section>
       </section>
