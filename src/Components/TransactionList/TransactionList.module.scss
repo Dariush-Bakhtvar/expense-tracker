@@ -1,0 +1,58 @@
+@import '../../Asset/style/Mixin';
+.TransactionList{
+  width: 100%;
+  height:270px;
+  overflow: hidden;
+}
+.TransactionListTitle{
+width: 100%;
+height: 60px;
+@include Flex(space-between,center);
+span{
+width: 30px;
+height: 30px;
+@include Flex(center,center);
+border: 1px solid $primery-gray;
+font-size: 1.7rem;
+color: $primery-gray;
+border-radius: 4px;
+transition:all 0.5s ease-in-out;
+cursor: pointer;
+&:hover{
+  color: $primery-Blue;
+  border:1px solid $primery-Blue;
+}
+}
+}
+.TransactionOrder{
+  width: 100%;
+  height: 30px;
+  color: $primery-gray;
+  // border-bottom: 1xp solid $border-color;
+  ul{ 
+    display: grid;
+    grid-template-columns: 1.7fr repeat(5,1fr);
+    font-size: 1.3rem;
+    height: 100%;
+    align-items: center;
+    @for $i from 3 through 6 {
+        li:nth-child(6n+#{$i}){
+        text-align: center;
+       }
+    }
+  }
+}
+.TransactionWrapper{
+  width: inherit;
+  height: 55*3px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+  width: 8px;
+}
+&::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+  height: 20px;
+  min-width: 20px;
+}
+}

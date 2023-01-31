@@ -7,7 +7,7 @@ import { Chart, ArcElement, CategoryScale, LinearScale, PointElement, LineElemen
 import { HiPlusSm, HiOutlineChevronDoubleRight } from 'react-icons/hi';
 import { FiArrowDownRight, FiArrowUpRight } from 'react-icons/fi';
 import { TfiMoreAlt } from 'react-icons/tfi';
-import { IoFilterOutline } from 'react-icons/io5';
+import TransactionList from '../TransactionList/TransactionList';
 Chart.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 export const options = {
   responsive: true,
@@ -191,14 +191,7 @@ const Content = ({ isDark, onChangeTheme }) => {
             </div>
           </div>
         </section>
-        <section className={style.TransactionList}>
-          <div className={style.TransactionListTitle}>
-            <h4>Transaction List</h4>
-            <span>
-              <IoFilterOutline />
-            </span>
-          </div>
-        </section>
+        <TransactionList />
       </section>
     </main>
   )
