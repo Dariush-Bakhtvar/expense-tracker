@@ -8,6 +8,7 @@ import { HiPlusSm, HiOutlineChevronDoubleRight } from 'react-icons/hi';
 import { FiArrowDownRight, FiArrowUpRight } from 'react-icons/fi';
 import { TfiMoreAlt } from 'react-icons/tfi';
 import TransactionList from '../TransactionList/TransactionList';
+import WithActive from '../HOC/WithActive';
 Chart.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 export const options = {
   responsive: true,
@@ -66,7 +67,7 @@ const Linedata = {
     },
   ],
 };
-const Content = ({ isDark, onChangeTheme }) => {
+const Content = ({ isDark, onChangeTheme, isActived }) => {
   const data = {
     datasets: [
       {
@@ -99,7 +100,7 @@ const Content = ({ isDark, onChangeTheme }) => {
       {/* Transanction Detail and chanrt */}
       <section className={style.TotalTransanction}>
         <section className={style.TransactionBox}>
-          <div className={style.totoalBudget}>
+          <div className={`${style.totoalBudget} ${isActived ? style.TotalMaxWidth : ''}`}>
             <div className={style.totoalBudgetInfo}>
               <div className={style.totoalBudgetDetail}>
                 <p className={style.IncomeText}>Total Income</p>
@@ -113,7 +114,7 @@ const Content = ({ isDark, onChangeTheme }) => {
               <span><HiOutlineChevronDoubleRight /></span>
             </button>
           </div>
-          <div className={style.totoalBudget}>
+          <div className={`${style.totoalBudget} ${isActived ? style.TotalMaxWidth : ''}`}>
             <div className={style.totoalBudgetInfo}>
               <div className={style.totoalBudgetDetail}>
                 <p className={style.ExpenseText}>Total Expense</p>
@@ -127,7 +128,7 @@ const Content = ({ isDark, onChangeTheme }) => {
               <span><HiOutlineChevronDoubleRight /></span>
             </button>
           </div>
-          <div className={style.totoalBudget}>
+          <div className={`${style.totoalBudget} ${isActived ? style.TotalMaxWidth : ''}`}>
             <div className={style.totoalBudgetInfo}>
               <div className={style.totoalBudgetDetail}>
                 <p>Total Money</p>
@@ -197,4 +198,4 @@ const Content = ({ isDark, onChangeTheme }) => {
   )
 }
 
-export default Content
+export default WithActive(Content);

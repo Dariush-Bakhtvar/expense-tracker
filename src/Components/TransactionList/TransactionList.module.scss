@@ -40,8 +40,14 @@ cursor: pointer;
         text-align: center;
        }
     }
+    @for $i from 4 to 6 {
+      li:nth-child(6n+#{$i}){
+        padding-right: 30%;
+      }
+    }
   }
 }
+
 .TransactionWrapper{
   width: inherit;
   height: 55*3px;

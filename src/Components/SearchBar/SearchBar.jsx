@@ -10,7 +10,7 @@ const SearchBar = ({ isDark, onClickHandler }) => {
   return (
     <section className={style.SearchBar}>
       <div className={style.DarkMode}>
-        <div className={`${style.SwitchBtn} ${isDark ? style.ActiveDarkMode : undefined}`} onClick={() => onClickHandler()}>
+        <div className={`${style.SwitchBtn} ${isDark ? style.ActiveDarkMode : ''}`} onClick={() => onClickHandler()}>
           <span><HiSun /></span>
           <span><HiMoon /></span>
         </div>

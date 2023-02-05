@@ -1,0 +1,155 @@
+@import '../../Asset/style/Mixin';
+.SideBarLogo{
+  width: 100%;
+  height: 80px;
+  @include Flex(flex-start,center);
+  padding-left: 10%;
+  overflow: hidden;
+  p{
+    width: 20%;
+    font-size: 2.2rem;
+    color: $primery-Blue;
+    padding-left: 5%;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 1;
+    transition: all 0.9s ease-in-out;
+
+  }
+  img{
+    width:40px;
+    height: 35px;
+  }
+}
+%MenuStyle{
+  width: 100%;
+  padding: 0 8%;
+  margin-top: 15px;
+  @include Flex(space-around,flex-start);
+  flex-direction: column;
+  color: $primery-gray;
+   ul,a{
+    overflow: hidden;
+  }
+  li{
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    // @include Flex(flex-start,center);
+    padding: 0 5px;
+    transition: all 0.7s ease-in-out;
+    cursor: pointer;
+    font-size: 1.5rem;
+    &:first-child{
+      background-color: rgba($color: $primery-Blue, $alpha: 0.05);
+      color: $primery-Blue;
+    }
+    &:hover{
+      color: $primery-Blue;
+      background-color: rgba($color: $primery-Blue, $alpha: 0.05);
+      transition: all 0.7s ease-in-out;
+      & .badge{
+        background-color:rgba($color: $light-red, $alpha: 1);
+        transition: background 0.5s ease-in-out;
+      }
+    }
+    a{
+      width:inherit;
+      height: 100%;
+       @include Flex(flex-start,center);
+       position: relative;
+       padding: 6px 0 0 6px;
+       span{
+        white-space: nowrap;
+        transition: all 0.9s ease-in-out;
+        &:first-child{
+          font-size: 2rem;
+        }
+        &:nth-child(2){
+          height: 100%;
+          margin-left: 10px;
+          padding-top: 3px;
+          opacity: 1;
+          transition: all 0.9s ease-in-out;
+        }
+       }
+    }
+  }
+}
+.sidebarMenu{
+  height: 250px;
+ @extend %MenuStyle;
+}
+.badge{
+  width: 20px;
+  height: 20px;
+  background-color:rgba($color: $light-red, $alpha: 0.7);
+  color: $whait;
+  border-radius: 3px;
+  @include Flex(center,center);
+  position: absolute;
+  right: 10px;
+font-size: 1.3rem;
+padding-bottom: 2px;
+}
+.sidbarMangeMenu{
+  height: 200px;
+ @extend %MenuStyle;
+ border-top: 1px solid #efefef;
+ padding-top: 10px;
+  transition: 1s ease;
+ 
+ p{
+  width: 100%;
+  font-size: 1.4rem;
+  padding-left:10px;
+  transition: 1s ease;
+ }
+}
+.Toggle{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 7%;
+  right: -8px;
+  @include Flex(center,center);
+  border-radius: 50%;
+  color:$whait;
+  background-color: $primery-Blue;
+  font-size: 2.1rem;
+  cursor: pointer;
+  z-index: 1;
+}
+/// collapse style menu
+.SideBarLogoCollapse{
+  p{
+     white-space: nowrap;
+    opacity: 0;
+    transition: all 0.75s ease-in-out;
+  }
+}
+.fadeMenuTitle{
+  li{
+    a{
+      span{
+        &:nth-child(2){
+          opacity: 0;
+          transition: all 0.75s ease-in-out;
+        }
+      }
+    }
+  }
+}
+.fadeBadge{
+  opacity: 0;
+  transition: all 0.35s ease-in-out !important;
+}
+.fadeMenuMangeTitle{
+  padding-top: 0;
+  transition: 1s ease;
+  p{
+    padding: 0;
+    transition: 1s ease;
+  }
+}

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { HiOutlinePencilSquare, HiOutlineTrash } from 'react-icons/hi2'
 import style from './transaction.module.scss';
 const Transaction = () => {
   return (
@@ -15,6 +16,10 @@ const Transaction = () => {
         <li>1500$</li>
         <li className={`${style.Status} ${style.income}`}>InCome</li>
         <li>35000$</li>
+        <li className={style.MngTransaction}>
+          <button><HiOutlinePencilSquare /></button>
+          <button><HiOutlineTrash /></button>
+        </li>
       </ul>
     </div>
   )

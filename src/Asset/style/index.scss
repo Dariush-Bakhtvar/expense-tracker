@@ -22,6 +22,10 @@ button,input,form{
 textarea{
   resize: none;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
 body{
   font-family: 'Source Sans Pro','Shabnam', sans-serif;
   font-size: 1.6rem;
@@ -36,15 +40,30 @@ body{
   grid-template-areas:  'aside nav nav'
                         'aside main main'
                         'aside main main';                       
-grid-template-columns: 320px repeat(2,auto);
+grid-template-columns: min-content repeat(2,auto);
 grid-template-rows: 70px repeat(2,auto);
 background-color: $bg-body;
 gap: 15px;
 padding: 15px;
 }
-.Sidebar{
+%sideBarCommonStyle{
   grid-area: aside;
   @extend %bg-color;
+   padding: 0 7%;
+  position: relative;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  z-index: 1;
+  transition: 1s ease;
+}
+.Sidebar{
+  width: 300px;
+  @extend %sideBarCommonStyle;
+}
+.SidebarCollapsed{
+  width: 60px;
+  @extend %sideBarCommonStyle;
+
 }
 .Navbar{
   grid-area: nav;
@@ -58,4 +77,6 @@ padding: 15px;
   grid-area: main;
   @extend %bg-color;
   padding: 0 20px;
+   border: 1px solid $border-color;
+  border-radius: 5px;
 }
