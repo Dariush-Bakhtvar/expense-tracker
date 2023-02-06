@@ -8,6 +8,10 @@ $light-gray:#ddd;
 $light-green:#21CC9E;
 $light-red:#FF708B;
 $box-shadow:2px 2px 4px #f5f4f4, -2px -2px 4px #f5f4f4;
+$mobile-Xs:320px;
+$mobile-S:375px;
+$mobile-M:480px;
+$tablet-s:$mobile-M+1;
 %bg-color{
   background-color: $whait;
 }
