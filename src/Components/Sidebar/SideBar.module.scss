@@ -5,6 +5,13 @@
   @include Flex(flex-start,center);
   padding-left: 10%;
   overflow: hidden;
+  @include media-XScreen($Mobile){
+    height: 50px;
+    padding-left: 0;
+  }
+  @include media-XScreen($Tablets){
+    height: 50px;
+  }
   p{
     width: 20%;
     font-size: 2.2rem;
@@ -15,13 +22,31 @@
     white-space: nowrap;
     opacity: 1;
     transition: all 0.9s ease-in-out;
-
+    @include media-XScreen($Mobile){
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: all 0.75s ease-in-out;
+    }
+    @include media-XScreen($Tablets){
+      font-size: 1.6rem;
+      opacity: 0;
+      transition: all 0.75s ease-in-out;
+    }
   }
   img{
     width:40px;
     height: 35px;
+    @include media-XScreen($Mobile){
+      width: 33px;
+       height: 33px;
+    }
+    @include media-XScreen($Tablets){
+       width: 33px;
+       height: 33px;
+    }
   }
 }
+
 %MenuStyle{
   width: 100%;
   padding: 0 8%;
@@ -29,6 +54,12 @@
   @include Flex(space-around,flex-start);
   flex-direction: column;
   color: $primery-gray;
+  @include media-XScreen($Mobile){
+    padding: 0;
+  }
+  @include media-XScreen($Tablets){
+  padding: 0 4%;
+  }
    ul,a{
     overflow: hidden;
   }
@@ -41,6 +72,10 @@
     transition: all 0.7s ease-in-out;
     cursor: pointer;
     font-size: 1.5rem;
+    @include media-XScreen($Mobile){
+      height: 26px;
+      padding: 0;
+    }
     &:first-child{
       background-color: rgba($color: $primery-Blue, $alpha: 0.05);
       color: $primery-Blue;
@@ -60,11 +95,17 @@
        @include Flex(flex-start,center);
        position: relative;
        padding: 6px 0 0 6px;
+       @include media-XScreen($Mobile){
+        padding: 0 0 0 6px;
+       }
        span{
         white-space: nowrap;
         transition: all 0.9s ease-in-out;
         &:first-child{
           font-size: 2rem;
+          @include media-XScreen($Mobile){
+            padding-top: 6px;
+          }
         }
         &:nth-child(2){
           height: 100%;
@@ -72,6 +113,18 @@
           padding-top: 3px;
           opacity: 1;
           transition: all 0.9s ease-in-out;
+          @include media-XScreen($Mobile){
+          font-size: 1.2rem;
+          opacity: 0;
+          transition: all 0.75s ease-in-out;
+          margin-left: 4px;
+          padding-top: 4px;
+          }
+          @include media-XScreen($Tablets){
+            font-size: 1.3rem;
+           opacity: 0;
+          transition: all 0.75s ease-in-out;
+          }
         }
        }
     }
@@ -80,6 +133,12 @@
 .sidebarMenu{
   height: 250px;
  @extend %MenuStyle;
+ @include media-XScreen($Mobile){
+  height: 175px;
+ }
+ @include media-XScreen($Tablets){
+  height: 180px;
+ }
 }
 .badge{
   width: 20px;
@@ -90,22 +149,53 @@
   @include Flex(center,center);
   position: absolute;
   right: 10px;
-font-size: 1.3rem;
-padding-bottom: 2px;
+  font-size: 1.3rem;
+  padding-bottom: 2px;
+  @include media-XScreen($Mobile){
+    width: 16px;
+    height: 16px;
+    right: 5px;
+    opacity: 0;
+    transition: all 0.35s ease-in-out !important;
+  }
+    @include media-XScreen($Tablets){
+    width: 16px;
+    height: 16px;
+    right: 5px;
+    opacity: 0;
+    transition: all 0.35s ease-in-out !important;
+  }
 }
 .sidbarMangeMenu{
   height: 200px;
  @extend %MenuStyle;
  border-top: 1px solid #efefef;
  padding-top: 10px;
-  transition: 1s ease;
- 
+ transition: 1s ease;
+ @include media-XScreen($Tablets){
+  padding-top: 0;
+ }
  p{
   width: 100%;
   font-size: 1.4rem;
   padding-left:10px;
   transition: 1s ease;
+  @include media-XScreen($Mobile){
+    display: none;
+  }
+  @include media-XScreen($Tablets){
+    padding-left:0;
+    font-size: 1.2rem;
+  }
  }
+  @include media-XScreen($Mobile){
+    padding-top: 0;
+    margin-top: 5px;
+    height: 120px;
+  }
+  @include media-XScreen($Tablets){
+    height: 175px;
+  }
 }
 .Toggle{
   width: 20px;
@@ -120,13 +210,30 @@ padding-bottom: 2px;
   font-size: 2.1rem;
   cursor: pointer;
   z-index: 1;
+  @include media-XScreen($Mobile){
+    width: 16px;
+    height: 16px;
+    top: 5%;
+  }
+  @include media-XScreen($Tablets){
+    top: 5%;
+    width: 16px;
+    height: 16px;
+  }
 }
 /// collapse style menu
 .SideBarLogoCollapse{
   p{
-     white-space: nowrap;
     opacity: 0;
     transition: all 0.75s ease-in-out;
+    @include media-XScreen($Mobile){
+       opacity: 1;
+    transition: all 0.9s ease-in-out;
+    }
+    @include media-XScreen($Tablets){
+      opacity: 1;
+      transition: all 0.9s ease-in-out;
+    }
   }
 }
 .fadeMenuTitle{
@@ -136,6 +243,14 @@ padding-bottom: 2px;
         &:nth-child(2){
           opacity: 0;
           transition: all 0.75s ease-in-out;
+          @include media-XScreen($Mobile){
+          opacity: 1;
+          transition: all 0.9s ease-in-out;
+          }
+          @include media-XScreen($Tablets){
+            opacity: 1;
+          transition: all 0.9s ease-in-out;
+          }
         }
       }
     }
@@ -144,10 +259,19 @@ padding-bottom: 2px;
 .fadeBadge{
   opacity: 0;
   transition: all 0.35s ease-in-out !important;
+  @include media-XScreen($Mobile){
+    opacity: 1;
+    transition: all 1.5s ease-in-out !important;
+  }
+  @include media-XScreen($Tablets){
+    opacity: 1;
+    transition: all 1.5s ease-in-out !important;
+  }
 }
 .fadeMenuMangeTitle{
   padding-top: 0;
   transition: 1s ease;
+  @extend .fadeMenuTitle;
   p{
     padding: 0;
     transition: 1s ease;

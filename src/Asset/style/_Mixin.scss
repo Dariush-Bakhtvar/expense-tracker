@@ -8,18 +8,41 @@ $light-gray:#ddd;
 $light-green:#21CC9E;
 $light-red:#FF708B;
 $box-shadow:2px 2px 4px #f5f4f4, -2px -2px 4px #f5f4f4;
+$Mobile:Mobile;
+$Tablets:Tablets;
+$Laptops:Laptops;
+$Desktops:Desktops;
 $mobile-Xs:320px;
 $mobile-S:375px;
-$mobile-M:480px;
-$tablet-s:$mobile-M+1;
-%bg-color{
-  background-color: $whait;
-}
+$mobile-L:480px;
+$tablet-L:768px;
+$pc-L:1024px;
+$pc-XL:1200px;
+$Breakpoints:("Mobile-Xs":320px,"Mobile-S":375px,"Mobile-L":480px,"Tablet-L":768px,"LabpTop-L":1024px,"Desktop-L":1200px);
 @mixin Flex($justify,$align){
   display: flex;
   justify-content: $justify;
   align-items: $align;
 }
+ @mixin media-XScreen ($Breakpoint){
+    @if($Breakpoint== $Mobile){
+      @media (min-width:$mobile-Xs) and (max-width:$mobile-L){@content}
+    }
+     @if($Breakpoint== $Tablets){
+       @media (min-width:($mobile-L+1)) and (max-width:$tablet-L){@content}
+    }
+    @if($Breakpoint== $Laptops){
+      @media (min-width:($tablet-L+1))and (max-width:$pc-L) {@content}
+    } 
+    @if($Breakpoint==$Desktops){
+      @media (min-width:($pc-L+1))and (max-width:$pc-XL) {@content}
+    }
+  }
 %Flex-Center{
   @include Flex(center,center);
 }
+%bg-color{
+  background-color: $whait;
+}
+ 
+  

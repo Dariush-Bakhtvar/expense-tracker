@@ -5,9 +5,16 @@ height: 70px;
 border-bottom: 1px solid $border-color;
 @include Flex(flex-end,center);
 padding: 0 4px;
+// @include media-XScreen($Mobile){
+//    justify-content: space-evenly;
+// }
 form{
   width: 250px;
   height: 30px;
+  @include media-XScreen($Mobile){
+    width: 142px;
+    height: 21px;
+  }
 }
 }
 .SearchWrapper{
@@ -23,13 +30,21 @@ input[type='text']{
   border-radius: 3px;
   transition: border .5s ease-in-out;
   color: $primery-Blue;
+  @include media-XScreen($Mobile){
+    border: 1px solid $primery-gray;
+    padding-left: 22px;
+  }
 &::placeholder{
   color: #A9B0C5;
+  font-size: 1.1rem;
 }
 &:focus{
   outline: none;
   border: 2px solid $primery-Blue;
    transition: border .5s ease-in-out;
+   @include media-XScreen($Mobile){
+    border: 1px solid $primery-Blue;
+   }
    + span{
     color:$primery-Blue;
      transition: color .5s ease-in-out;
@@ -44,6 +59,10 @@ span{
   top:0;
   color: $primery-gray;
    transition: color .5s ease-in-out;
+   @include media-XScreen($Mobile){
+    width: 25px;
+    padding-top: 2px;
+   }
 }
 }
 %btn-style{
@@ -56,6 +75,11 @@ span{
   border-radius: 50%;
   position: relative;
   cursor: pointer;
+  @include media-XScreen($Mobile){
+    width: 24px;
+    height: 24px;
+    font-size: 1.8rem
+  }
 }
 .Notification{
 @extend %btn-style;
@@ -69,6 +93,12 @@ span{
       right: 6px;
       top: 8px;
       border:2px solid #fff;
+      @include media-XScreen($Mobile){
+        width: 8px;
+        height: 8px;
+        right: 4px;
+        top: 4px;
+      }
     }
     &:nth-child(2){
       width: 100%;
@@ -104,6 +134,10 @@ span{
     position: absolute;
     top:22%;
     left: 16%;
+    @include media-XScreen($Mobile){
+      top:2px;
+      left: 2px;
+    }
     &:nth-child(1){
       transform: translateY(0);
       opacity: 1;

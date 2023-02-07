@@ -45,7 +45,7 @@ const SideBar = ({ isToggle, setIsToggle }) => {
         <li>
           <a href="/#">
             <span><BiTransferAlt /></span>
-            <span> Transaction List</span>
+            <span> Transaction</span>
             <span className={`${style.badge} ${isToggle ? style.fadeBadge : ''}`}>2</span>
           </a>
         </li>

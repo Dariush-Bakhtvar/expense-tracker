@@ -100,7 +100,7 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
       {/* Transanction Detail and chanrt */}
       <section className={style.TotalTransanction}>
         <section className={style.TransactionBox}>
-          <div className={`${style.totoalBudget} ${isActived ? style.TotalMaxWidth : ''}`}>
+          <div className={style.totoalBudget}>
             <div className={style.totoalBudgetInfo}>
               <div className={style.totoalBudgetDetail}>
                 <p className={style.IncomeText}>Total Income</p>
@@ -114,7 +114,7 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
               <span><HiOutlineChevronDoubleRight /></span>
             </button>
           </div>
-          <div className={`${style.totoalBudget} ${isActived ? style.TotalMaxWidth : ''}`}>
+          <div className={style.totoalBudget}>
             <div className={style.totoalBudgetInfo}>
               <div className={style.totoalBudgetDetail}>
                 <p className={style.ExpenseText}>Total Expense</p>
@@ -128,7 +128,7 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
               <span><HiOutlineChevronDoubleRight /></span>
             </button>
           </div>
-          <div className={`${style.totoalBudget} ${isActived ? style.TotalMaxWidth : ''}`}>
+          <div className={style.totoalBudget}>
             <div className={style.totoalBudgetInfo}>
               <div className={style.totoalBudgetDetail}>
                 <p>Total Money</p>

@@ -11,8 +11,8 @@ const SearchBar = ({ isDark, onClickHandler }) => {
     <section className={style.SearchBar}>
       <div className={style.DarkMode}>
         <div className={`${style.SwitchBtn} ${isDark ? style.ActiveDarkMode : ''}`} onClick={() => onClickHandler()}>
-          <span><HiSun /></span>
           <span><HiMoon /></span>
+          <span><HiSun /></span>
         </div>
       </div>
       <div className={style.Notification}>
