@@ -3,16 +3,49 @@
 width: 100%;
 height: 70px;
 @include Flex(space-between,center);
+@include media-XScreen($Mobile){
+  height: 50px;
+  margin-bottom: 5px;
+}
+@include media-XScreen($Tablets){
+  height: 60px;
+  margin-bottom: 5px;
+}
+@include media-XScreen($Laptops){
+  height: 65px;
+}
+@include media-XScreen($Desktops){
+  height: 70px;
+}
 // padding: 0 15px;
 }
 .TextInfo{
   line-height: 1.6;
+  @include media-XScreen($Mobile){
+    line-height: 1.5;
+    padding-left: 3px;
+  }
+  @include media-XScreen($Tablets){
+    line-height: 1.5;
+  }
   h3{
     text-transform: capitalize;
+    @include media-XScreen($Mobile){
+      font-size: 1.4rem;
+    }
+    @include media-XScreen($Tablets){
+      font-size: 1.6rem;
+    }
   }
   p{
     color: $primery-gray;
     font-size: 1.3rem;
+    @include media-XScreen($Mobile){
+      font-size: 1.1rem;
+    }
+    @include media-XScreen($Tablets){
+      font-size: 1.2rem;
+    }
   }
 }
 .newBudgetBtn{
@@ -27,10 +60,29 @@ height: 70px;
     border-radius: 3px;
     cursor: pointer;
     transition: all 0.6s;
+    @include media-XScreen($Mobile){
+      width: 100px;
+      height: 32px;
+      font-size: 1.14rem;
+      padding-left: 3px;
+    }
+    @include media-XScreen($Tablets){
+      width: 110px;
+      height: 32px;
+      font-size: 1.2rem;
+      padding-left: 3px;
+    }
+    @include media-XScreen($Laptops){}
     span{
       &:nth-child(2){
         font-size: 2rem;
           display: flex;
+          @include media-XScreen($Mobile){
+            font-size: 1.8rem;
+          }
+          @include media-XScreen($Tablets){
+
+          }
       }
     }
     &:hover{
@@ -40,6 +92,7 @@ height: 70px;
     transition: all 0.6s;
     }
   }
+// transaction Wrapper
 .TotalTransanction{
    width: 100%;
    height: auto;
@@ -54,10 +107,15 @@ height: 70px;
   @include Flex(flex-start,center);
   flex-direction: column;
 }
+// box show tacker
 .TransactionBox{
   @include Flex(space-between,center);
   width: 100%;
   height: 150px;
+  @include media-XScreen($Mobile){
+    height: 100px;
+  }
+
 }
 .sideChart{
   grid-area: asideChart;
@@ -85,6 +143,10 @@ height: 70px;
       color: $border-color;
       @include Flex(space-between,center);
       padding: 0 15px;
+      @include media-XScreen($Mobile){
+        padding: 0;
+        font-size: 1.2rem;
+      }
       
     }
 }
@@ -92,6 +154,10 @@ height: 70px;
   height: 75%;
   position: relative;
   @include Flex(space-around,center);
+  position: relative;
+  @include media-XScreen($Mobile){
+    flex-direction: column
+  }
   span{
     @extend %Flex-Center;
     width: 35px;
@@ -102,19 +168,43 @@ height: 70px;
     color: #21CC9E;
     align-self: baseline;
     margin-top: 20px;
+    @include media-XScreen($Mobile){
+     width: 16px;
+    height: 16px;
+    font-size: 1.6rem;
+     margin-top: 0;
+     position: absolute;
+     right: 4px;
+     top: 4px;
+    }
   }
 
 }
 .totoalBudgetDetail{
   line-height: 1.48;
+  @include media-XScreen($Mobile){
+    // line-height: 1.22;
+    padding: 0 4px;
+  }
   p{
     color: $primery-gray;
     font-weight: 300 !important;
     &:nth-child(1){
       font-size: 1.4rem;
+      @include media-XScreen($Mobile){
+        font-size: 1.1rem;
+      }
     }
     &:nth-child(3){
       font-size: 1.2rem;
+      @include media-XScreen($Mobile){
+        font-size: 0.92rem
+      }
+    }
+  }
+  h2{
+    @include media-XScreen($Mobile){
+      font-size: 1.6rem
     }
   }
 }
@@ -140,6 +230,11 @@ display: flex;
 justify-content: center;
 border-radius: 3px;
 padding-top: 2px;
+@include media-XScreen($Mobile){
+width: 65px;
+padding: 0;
+margin-top: 4px;
+}
 }
 .colorRed{
   color: #FF708B !important;

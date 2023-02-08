@@ -132,4 +132,7 @@ padding: 15px;
   padding: 0 20px;
    border: 1px solid $border-color;
   border-radius: 5px;
+  @include media-XScreen($Mobile){
+    padding: 0 5px;
+  }
 }

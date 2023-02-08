@@ -5,17 +5,33 @@ height: 70px;
 border-bottom: 1px solid $border-color;
 @include Flex(flex-end,center);
 padding: 0 4px;
-// @include media-XScreen($Mobile){
-//    justify-content: space-evenly;
-// }
+@include media-XScreen($Mobile){
+  height: 50px;
+  //  justify-content: space-evenly;
+}
+@include media-XScreen($Tablets){
+  height: 60px;
+}
+@include media-XScreen($Laptops){
+  height: 65px;
+}
+
 form{
-  width: 250px;
+  width: 25%; //250px
   height: 30px;
   @include media-XScreen($Mobile){
-    width: 142px;
-    height: 21px;
+    width: 50%;
   }
+  @include media-XScreen($Tablets){
+    width: 40%;
+  }
+  @include media-XScreen($Laptops){
+  width: 30%;
 }
+@include media-XScreen($Desktops){
+  width: 25%;
+}
+ }
 }
 .SearchWrapper{
 width: 100%;
@@ -26,7 +42,7 @@ input[type='text']{
   width: 100%;
   height: 100%;
   padding-left: 35px;
-  border:2px solid $primery-gray;
+  border:1px solid $primery-gray;
   border-radius: 3px;
   transition: border .5s ease-in-out;
   color: $primery-Blue;
@@ -34,15 +50,22 @@ input[type='text']{
     border: 1px solid $primery-gray;
     padding-left: 22px;
   }
+  @include media-XScreen($Tablets){
+    border: 1px solid $primery-gray;
+    padding-left: 26px;
+  }
 &::placeholder{
   color: #A9B0C5;
   font-size: 1.1rem;
 }
 &:focus{
   outline: none;
-  border: 2px solid $primery-Blue;
+  border: 1px solid $primery-Blue;
    transition: border .5s ease-in-out;
    @include media-XScreen($Mobile){
+    border: 1px solid $primery-Blue;
+   }
+   @include media-XScreen($Tablets){
     border: 1px solid $primery-Blue;
    }
    + span{
@@ -63,6 +86,9 @@ span{
     width: 25px;
     padding-top: 2px;
    }
+   @include media-XScreen($Tablets){
+    width: 30px;
+   }
 }
 }
 %btn-style{
@@ -79,6 +105,10 @@ span{
     width: 24px;
     height: 24px;
     font-size: 1.8rem
+  }
+  @include media-XScreen($Tablets){
+    width: 28px;
+    height: 28px;
   }
 }
 .Notification{
@@ -110,6 +140,12 @@ span{
 .DarkMode{
   @extend %btn-style;
   font-size:2rem;
+  @include media-XScreen($Mobile){
+    font-size: 1.7rem;
+  }
+  @include media-XScreen($Tablets){
+    font-size: 1.9rem;
+  }
 }
 .SwitchBtn{
    width: 100%;
@@ -137,6 +173,10 @@ span{
     @include media-XScreen($Mobile){
       top:2px;
       left: 2px;
+    }
+    @include media-XScreen($Tablets){
+      top: 16%;
+      left: 16%;
     }
     &:nth-child(1){
       transform: translateY(0);
