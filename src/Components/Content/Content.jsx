@@ -98,99 +98,101 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
         </button>
       </section>
       {/* Transanction Detail and chanrt */}
-      <section className={style.TotalTransanction}>
-        <section className={style.TransactionBox}>
-          <div className={style.totoalBudget}>
-            <div className={style.totoalBudgetInfo}>
-              <div className={style.totoalBudgetDetail}>
-                <p className={style.IncomeText}>Total Income</p>
-                <h2>545472</h2>
-                <p>increase compeared to last Week</p>
+      <section className={style.TransactionWrapper}>
+        <section className={style.TotalTransanction}>
+          <section className={style.TransactionBox}>
+            <div className={style.totoalBudget}>
+              <div className={style.totoalBudgetInfo}>
+                <div className={style.totoalBudgetDetail}>
+                  <p className={style.IncomeText}>Total Income</p>
+                  <h2>545472</h2>
+                  <p>increase compeared to last Week</p>
+                </div>
+                <span><FiArrowUpRight /></span>
               </div>
-              <span><FiArrowUpRight /></span>
+              <button className={style.NoneBtnBg}>
+                <span>See Details</span>
+                <span><HiOutlineChevronDoubleRight /></span>
+              </button>
             </div>
-            <button className={style.NoneBtnBg}>
-              <span>See Details</span>
-              <span><HiOutlineChevronDoubleRight /></span>
-            </button>
-          </div>
-          <div className={style.totoalBudget}>
-            <div className={style.totoalBudgetInfo}>
-              <div className={style.totoalBudgetDetail}>
-                <p className={style.ExpenseText}>Total Expense</p>
-                <h2>545472</h2>
-                <p>increase compared to last Week</p>
+            <div className={style.totoalBudget}>
+              <div className={style.totoalBudgetInfo}>
+                <div className={style.totoalBudgetDetail}>
+                  <p className={style.ExpenseText}>Total Expense</p>
+                  <h2>545472</h2>
+                  <p>increase compared to last Week</p>
+                </div>
+                <span className={style.colorRed}><FiArrowDownRight /></span>
               </div>
-              <span className={style.colorRed}><FiArrowDownRight /></span>
+              <button className={style.NoneBtnBg}>
+                <span>See Details</span>
+                <span><HiOutlineChevronDoubleRight /></span>
+              </button>
             </div>
-            <button className={style.NoneBtnBg}>
-              <span>See Details</span>
-              <span><HiOutlineChevronDoubleRight /></span>
-            </button>
-          </div>
-          <div className={style.totoalBudget}>
-            <div className={style.totoalBudgetInfo}>
-              <div className={style.totoalBudgetDetail}>
-                <p>Total Money</p>
-                <h2>545472</h2>
-                <p>increase compeared to last Week</p>
+            <div className={style.totoalBudget}>
+              <div className={style.totoalBudgetInfo}>
+                <div className={style.totoalBudgetDetail}>
+                  <p>Total Money</p>
+                  <h2>545472</h2>
+                  <p>increase compeared to last Week</p>
+                </div>
+                <span><FiArrowUpRight /></span>
               </div>
-              <span><FiArrowUpRight /></span>
+              <button>
+                <span>See Details</span>
+                <span><HiOutlineChevronDoubleRight /></span>
+              </button>
             </div>
-            <button>
-              <span>See Details</span>
-              <span><HiOutlineChevronDoubleRight /></span>
-            </button>
-          </div>
-        </section>
-        <section className={style.TransactionCharts}>
-          <div className={style.DetailHistogram}>
-            <Line options={options} data={Linedata} />
-          </div>
-          <div className={style.totoalChart}>
-            <Doughnut
-              data={data}
-              options={{
-                plugins: {
-                  legend: {
-                    display: false
+          </section>
+          <section className={style.TransactionCharts}>
+            <div className={style.DetailHistogram}>
+              <Line options={options} data={Linedata} />
+            </div>
+            <div className={style.totoalChart}>
+              <Doughnut
+                data={data}
+                options={{
+                  plugins: {
+                    legend: {
+                      display: false
+                    },
+                    tooltip: {
+                      enabled: false
+                    }
                   },
-                  tooltip: {
-                    enabled: false
-                  }
-                },
-                rotation: -90,
-                circumference: 180,
-                cutout: "60%",
-                maintainAspectRatio: true,
-                responsive: true
-              }}
-            />
-            <div className={style.totalChartHeader}>
-              <p>Total Chart</p>
-              <span>
-                <TfiMoreAlt />
-              </span>
-            </div>
-            <div className={style.totoalChartInfo}>
-              <p>Total Budget</p>
-              <p>54589</p>
-            </div>
-            <div className={style.totalChartPrice}>
-              <div>
-                <span>income</span>
-                <p>1500</p>
+                  rotation: -90,
+                  circumference: 180,
+                  cutout: "60%",
+                  maintainAspectRatio: true,
+                  responsive: true
+                }}
+              />
+              <div className={style.totalChartHeader}>
+                <p>Total Chart</p>
+                <span>
+                  <TfiMoreAlt />
+                </span>
               </div>
-              <div>
-                <span>expence</span>
-                <p>2700</p>
+              <div className={style.totoalChartInfo}>
+                <p>Total Budget</p>
+                <p>54589</p>
               </div>
-              <div>
-                <span>Total</span>
-                <p>1000</p>
+              <div className={style.totalChartPrice}>
+                <div>
+                  <span>income</span>
+                  <p>1500</p>
+                </div>
+                <div>
+                  <span>expence</span>
+                  <p>2700</p>
+                </div>
+                <div>
+                  <span>Total</span>
+                  <p>1000</p>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </section>
         <TransactionList />
       </section>
