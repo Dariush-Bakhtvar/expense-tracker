@@ -2,18 +2,30 @@
 .Transaction{
   width: 100%;
   height: 55px;
-  // padding-right: 5%;
   border-top: 1px solid $light-gray;
 ul{
   width: 100%;
   height: 100%;
   @include Flex(space-between,center);
-  // border-top: 1px solid #C1C1D4;
+  @include media-XScreen($Mobile){
+    display: grid;
+    grid-template-columns: 70px 100px 65px 75px 60px 100px;
+    align-items: center;
+  }
   li{
     font-size: 1.6rem;
     font-weight: bold;
     &:nth-child(1){
       flex-grow: 0.2;
+    }
+    @include media-XScreen($Mobile){
+      font-size: 1.2rem;
+    }
+    @include media-XScreen($Tablets){
+      font-size: 1.4rem;
+    }
+    @include media-XScreen($Laptops){
+      font-size: 1.5rem;
     }
 }
   }
@@ -48,26 +60,41 @@ ul{
       }
     }
   }
+  @include media-XScreen($Mobile){
+      width: 65px;
+      margin-right:5px;
+    }
+   @include media-XScreen($Tablets){
+      width: 60px;
+      justify-content: space-between;
+      margin-right: 5px;
+    }
+
 }
 .Detail,.Date{
   @include Flex(space-between,flex-start);
   flex-direction: column;
+   align-self: baseline;
+    margin-top: 5px;
 span{
   &:first-child{
     font-size: 1.2rem;
     font-weight: normal;
     color: $primery-gray;
   }
+
 }
 }
 .Status{
   font-size: 1.2rem !important;
-  
   font-weight: normal;
   width: 60px;
   height: 20px;
   border-radius: 4px;
   @include Flex(center,center);
+  @include media-XScreen($Mobile){
+    font-weight: normal !important;
+  }
 }
 .income{
 color: #21CC9E;

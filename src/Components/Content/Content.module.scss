@@ -102,6 +102,9 @@ height: 70px;
   @include media-XScreen($Mobile){
     flex-direction: column-reverse;
   }
+  @include media-XScreen($Tablets){
+    flex-direction: column-reverse;
+  }
 }
 .TotalTransanction{
    width: 100%;
@@ -189,14 +192,17 @@ height: 70px;
     height: 24px;
     font-size: 1.8rem;
     }
+    @include media-XScreen($Tablets){
+      width: 28px;
+      height: 28px;
+      margin-right: 5px;
+      font-size: 1.8rem;
+    }
   }
 
 }
 .totoalBudgetDetail{
   line-height: 1.48;
-  @include media-XScreen($Mobile){
-  line-height: 1.5;
-  }
   p{
     color: $primery-gray;
     font-weight: 300 !important;
@@ -204,6 +210,9 @@ height: 70px;
       font-size: 1.4rem;
       @include media-XScreen($Mobile){
         font-size: 1.1rem;
+      }
+      @include media-XScreen($Tablets){
+        font-size: 1.2rem;
       }
     }
     &:nth-child(3){
@@ -217,6 +226,15 @@ height: 70px;
     @include media-XScreen($Mobile){
       font-size: 2rem
     }
+    @include media-XScreen($Tablets){
+      font-size: 2rem;
+    }
+  }
+    @include media-XScreen($Mobile){
+  line-height: 1.5;
+  }
+  @include media-XScreen($Tablets){
+    padding-left: 5%;
   }
 }
 .DetailBudget{
@@ -245,6 +263,11 @@ padding-top: 2px;
 width: 70px;
 padding: 0;
 }
+@include media-XScreen($Tablets){
+  width: 70px;
+  padding: 0;
+  border-radius: 2px;
+}
 }
 .colorRed{
   color: #FF708B !important;
@@ -265,6 +288,14 @@ width: 100%;
 height: 250px;
 @include Flex(space-between,center);
 margin:3% 0 1% 0;
+@include media-XScreen($Mobile){
+  height: auto;
+  flex-direction: column-reverse;
+}
+@include media-XScreen($Tablets){
+  flex-direction: column-reverse;
+  height: auto;
+}
 }
 .totoalChart{
   width: 30%;
@@ -278,8 +309,25 @@ margin:3% 0 1% 0;
  canvas{
   width: 100%;
   height: 50%;
+  @include media-XScreen($Mobile){
+    width: 75% !important;
+    height: 100% !important;
+  }
+  @include media-XScreen($Tablets){
+    width: 80% !important;
+    height: 100% !important;
+  }
  }
- 
+ @include media-XScreen($Mobile){
+  width: 100%;
+  height: 250px;
+  margin-bottom: 15px;
+ }
+ @include media-XScreen($Tablets){
+  width: 300px;
+  height: 250px;
+  margin-bottom: 3%;
+ }
 }
 .totoalChartInfo{
  position: absolute;
@@ -294,6 +342,12 @@ P{
     font-size: 3rem;
     color: $primery-Color;
     font-weight: bold;
+    @include media-XScreen($Mobile){
+      font-size: 2.5rem;
+    }
+    @include media-XScreen($Tablets){
+    font-size: 2.5rem;
+    }
   }
 }    
 }
@@ -331,6 +385,9 @@ P{
     p{
       font-size: 1.8rem;
       font-weight: bold;
+      @include media-XScreen($Mobile){
+        font-size: 1.6rem;
+      }
     }
     &:nth-child(1){
       border-top: 3px solid $primery-Blue;
@@ -342,6 +399,13 @@ P{
       border-top: 3px solid #d9f3e9;
     }
   }
+  @include media-XScreen($Mobile){
+    justify-content: space-between;
+    padding: 0 12%;
+  }
+  @include media-XScreen($Tablets){
+    padding:0 12px;
+  }
 }
 .DetailHistogram {
   width: 65%;
@@ -352,6 +416,15 @@ P{
   padding-left: 20px;
   canvas{
     width: 100% !important;
+  }
+  @include media-XScreen($Mobile){
+    width: 100%;
+    height: 150px;
+    padding-left: 4px;
+  }
+  @include media-XScreen($Tablets){
+    width: 100%;
+    height: 210px;
   }
 }
 //Transaction List
