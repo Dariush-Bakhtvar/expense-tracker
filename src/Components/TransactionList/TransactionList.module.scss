@@ -60,23 +60,24 @@ cursor: pointer;
   height: 55*3px;
   overflow: auto;
   &::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
   &::-webkit-scrollbar:horizontal {
-  height: 8px !important;
-  width: 140px;
+  height: 6px !important;
+  max-width: 20%;
 }
 &::-webkit-scrollbar-thumb {
   background: #ddd;
   border-radius: 10px;
-  height: 20px;
-  min-width: 20px;
+  height: 10px;
+  min-width: 10px;
 }
 &::-webkit-scrollbar-thumb:horizontal {
   background: #ddd;
   border-radius: 10px;
-  height: 20px;
-  min-width: 20px;
+  height: 10px;
+  // width: 40px !important;
+  // min-width: 10px;
 }
 
 }

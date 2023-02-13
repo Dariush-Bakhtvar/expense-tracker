@@ -213,12 +213,14 @@
   @include media-XScreen($Mobile){
     width: 16px;
     height: 16px;
-    top: 5%;
+    top: 3.5%;
+      right: -5px;
   }
   @include media-XScreen($Tablets){
-    top: 5%;
+   top: 4%;
     width: 16px;
     height: 16px;
+     right: -5px;
   }
 }
 /// collapse style menu
