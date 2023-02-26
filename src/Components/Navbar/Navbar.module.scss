@@ -1,6 +1,6 @@
 @import '../../Asset/style/Mixin';
 .Navigation,.Profile{
-  @extend %bg-color;
+  @extend %commonStyle;
   height: 60px;
   border: 1px solid $border-color;
   border-radius: 5px;
@@ -51,6 +51,7 @@ svg{
 }
 }
 .SubMenu{
+  @extend %commonStyle;
   position: absolute;
   top: 65px;
   right: 0;
@@ -58,11 +59,9 @@ svg{
   height: 120px;
   z-index: 1;
   transition: color 0.5s ease-in-out;
-  border: 1px solid $border-color;
   @include Flex(space-around,flex-start);
   flex-direction: column;
   font-size: inherit;
-  @extend %bg-color;
 color: $primery-Color;
 li{
   width: 100%;
@@ -90,6 +89,11 @@ li{
       border-bottom: none;
     }
     }
+}
+.DarkTheme{
+  background-color: $bg-dark-primery;
+  color: $primery-gray;
+  border: none;
 }
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-L) {
   .Navigation,.Profile{

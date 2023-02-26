@@ -1,0 +1,117 @@
+@import './Mixin';
+@import './Component';
+.container{
+  display: grid;
+  height: auto;
+  grid-template-areas:  'aside nav nav'
+                        'aside main main'
+                        'aside main main';                       
+grid-template-columns: min-content repeat(2,1fr);
+grid-template-rows: 70px repeat(2,auto);
+gap: 15px;
+padding: 15px;
+transition: all 1s ease;
+
+@include media-XScreen($Mobile){
+   padding:0;
+  gap: 5px;
+  grid-template-rows: 50px repeat(2,1fr);
+  padding-right: 5px;
+}
+@include media-XScreen ($Tablets){
+  width: 100%;
+  padding:0;
+  gap: 5px;
+  grid-template-rows: 50px repeat(2,1fr);
+  padding-right:7px;
+}
+@include media-XScreen($Laptops){
+ padding: 10px;
+  gap: 10px;
+}
+@include media-XScreen($Desktops){
+  padding: 10px;
+  gap: 10px;
+}
+}
+.container-Dark{
+background-color: $bg-dark-primery;
+color: $primery-gray;
+}
+.container-Light{
+  background-color: $bg-body;
+  color: $primery-Color;
+}
+%sideBarCommonStyle{
+  grid-area: aside;
+  @extend %commonStyle;
+   padding: 0 2%;
+  position: relative;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  z-index: 1;
+ transition: all 1s ease;
+}
+.Sidebar{
+  width: 285px;
+  @extend %sideBarCommonStyle;
+  @include media-XScreen($Mobile){
+    width: 40px;
+    padding: 0;
+  }
+  @include media-XScreen($Tablets){
+    width: 55px;
+  }
+  @include media-XScreen($Laptops){
+    width: 225px;
+  }
+  @include media-XScreen($Desktops){
+    width: 250px;
+  }
+}
+.SidebarCollapsed{
+  width: 60px;
+  @extend %sideBarCommonStyle;
+  @include media-XScreen($Mobile){
+    width: 120px;
+  }
+  @include media-XScreen($Tablets){
+    width: 160px;
+  }
+
+}
+.Navbar{
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 78% 20%;
+  column-gap: 2%;
+  align-items: center;
+  padding-top: 10px;
+  @include media-XScreen($Mobile){
+  grid-template-columns: 66% 33%;
+  padding-top: 5px;
+  column-gap: 1%;
+  }
+  @include media-XScreen($Tablets){
+   grid-template-columns: 66% 33%;
+  padding-top: 5px;
+  column-gap: 1%;
+  }
+  @include media-XScreen($Laptops){
+     grid-template-columns: 70% 28%;
+  }
+}
+.Content{
+  grid-area: main;
+  @extend %commonStyle;
+  padding: 0 20px;
+  border-radius: 5px;
+  @include media-XScreen($Mobile){
+    padding: 0 5px;
+  }
+}
+.DarkTheme{
+  background-color:$bg-dark-secodery;
+  border: 1px solid $dark-blue;
+  color: $primery-gray;
+}

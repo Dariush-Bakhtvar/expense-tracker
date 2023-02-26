@@ -8,6 +8,10 @@ $primery-Color:#3B3B61;
 $light-gray:#ddd;
 $light-green:#21CC9E;
 $light-red:#FF708B;
+$bg-dark-primery:#0b0b1c;
+$bg-dark-secodery:rgb(15,15,38);
+$bg-dark-Tertiary:#192034;
+$dark-blue:#0e0f20;
 $box-shadow:2px 2px 4px #f5f4f4, -2px -2px 4px #f5f4f4;
 $Mobile:Mobile;
 $Tablets:Tablets;
@@ -42,8 +46,10 @@ $Breakpoints:("Mobile-Xs":320px,"Mobile-S":375px,"Mobile-L":480px,"Tablet-L":768
 %Flex-Center{
   @include Flex(center,center);
 }
-%bg-color{
+%commonStyle{
   background-color: $whait;
+  border: 1px solid $border-color;
+   transition: all 1s ease;
 }
  
   

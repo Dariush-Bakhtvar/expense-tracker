@@ -2,7 +2,7 @@
 .SearchBar{
 width: 100%;
 height: 70px;
-border-bottom: 1px solid $border-color;
+
 @include Flex(flex-end,center);
 padding: 0 4px;
 @include media-XScreen($Mobile){
@@ -32,6 +32,12 @@ form{
   width: 25%;
 }
  }
+}
+.br_light{
+  border-bottom: 1px solid $border-color;
+}
+.br_gray{
+  border-bottom:1px solid $primery-gray;
 }
 .SearchWrapper{
 width: 100%;
@@ -95,12 +101,11 @@ span{
   width: 30px;
   height: 30px;
   font-size: 2.2rem;
-  // background-color: rgba($color: $border-color, $alpha: 0.6);
-  background-color: #F8F9FB;
   margin: 0 4px;
   border-radius: 50%;
   position: relative;
   cursor: pointer;
+  transition: all 1s ease;
   @include media-XScreen($Mobile){
     width: 24px;
     height: 24px;
@@ -111,8 +116,9 @@ span{
     height: 28px;
   }
 }
-.Notification{
+%Notification{
 @extend %btn-style;
+ transition: all 1s ease;
    span{
     &:nth-child(1){
       width: 10px;
@@ -137,15 +143,32 @@ span{
   }
   }
 }
-.DarkMode{
-  @extend %btn-style;
-  font-size:2rem;
-  @include media-XScreen($Mobile){
+.Notification_light{
+  @extend %Notification;
+  background-color: #F8F9FB;
+}
+.Notification_Dark{
+@extend %Notification;
+background-color: #1e293e;
+}
+%Mode{
+  @extend %btn-style; 
+   font-size:2rem;
+   @include media-XScreen($Mobile){
     font-size: 1.7rem;
   }
   @include media-XScreen($Tablets){
     font-size: 1.9rem;
   }
+}
+.DarkMode{
+  background-color: #1e293e;
+  @extend %Mode;
+  
+}
+.lightMode{
+  background-color: #F8F9FB;
+@extend %Mode;
 }
 .SwitchBtn{
    width: 100%;
@@ -168,11 +191,11 @@ span{
   //  }
    span{
     position: absolute;
-    top:22%;
-    left: 16%;
+    top:5px;
+    left: 5px;
     @include media-XScreen($Mobile){
-      top:2px;
-      left: 2px;
+      top:4px;
+      left: 4px;
     }
     @include media-XScreen($Tablets){
       top: 16%;
@@ -204,3 +227,7 @@ span{
         }
       }
   }
+.DarkTheme{
+  background-color: #1e293e;
+   transition: all 1s ease;
+}

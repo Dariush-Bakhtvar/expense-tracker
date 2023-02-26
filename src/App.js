@@ -1,24 +1,12 @@
-import React, { useState } from 'react'
-import './Asset/style/App.scss';
-import Navbar from './Components/Navbar/Navbar';
-import Content from './Components/Content/Content';
-import SideBar from './Components/Sidebar/SideBar';
-import WithActive from './Components/HOC/WithActive';
-const App = ({ isActive, setIsActive }) => {
-  const [isDarkMode, setDarkMode] = useState(false);
-  const DarkModeHandler = () => {
-    setDarkMode(!isDarkMode);
-  }
-  const ToggleActiveHandler = () => {
-    setIsActive();
-  }
+import ThemeProvider from './Components/Context/ThemeProvider';
+import Container from './Components/Container/Container';
+const App = () => {
+
   return (
-    <>
-      <Navbar />
-      <Content isDark={isDarkMode} onChangeTheme={() => DarkModeHandler()} isActived={isActive} />
-      <SideBar isToggle={isActive} setIsToggle={() => ToggleActiveHandler()} />
-    </>
+    <ThemeProvider>
+      <Container />
+    </ThemeProvider>
   )
 }
 
-export default WithActive(App);
+export default App;

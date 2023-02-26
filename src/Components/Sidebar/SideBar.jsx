@@ -7,23 +7,21 @@ import { BiPieChartAlt2, BiTransferAlt } from 'react-icons/bi';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { FiPenTool } from 'react-icons/fi';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
-import WithActive from '../HOC/WithActive';
-const SideBar = ({ isToggle, setIsToggle }) => {
-  // const ToggleClickHandler = () => {
-  //   setIsToggle();
-  // }
+import { useTheme } from '../Context/ThemeProvider';
+const SideBar = ({ isToggled, setIsToggled }) => {
+  const themeStatus = useTheme();
   return (
-    <aside className={isToggle ? 'SidebarCollapsed' : 'Sidebar'}>
-      <div className={style.Toggle} onClick={() => setIsToggle()}>
+    <aside className={`${isToggled ? `SidebarCollapsed` : 'Sidebar'} ${themeStatus.darkMode && 'DarkTheme'}`}>
+      <div className={style.Toggle} onClick={() => setIsToggled()}>
         {
-          isToggle ? <MdChevronRight /> : <MdChevronLeft />
+          isToggled ? <MdChevronRight /> : <MdChevronLeft />
         }
       </div>
-      <div className={`${style.SideBarLogo} ${isToggle ? style.SideBarLogoCollapse : ''}`}>
+      <div className={`${style.SideBarLogo} ${isToggled ? style.SideBarLogoCollapse : ''}`}>
         <img src={require('../../Asset/img/budget.png')} alt="SidebarLogo" />
         <p>Budget Saver</p>
       </div>
-      <ul className={`${style.sidebarMenu} ${isToggle ? style.fadeMenuTitle : ''}`}>
+      <ul className={`${style.sidebarMenu} ${isToggled ? style.fadeMenuTitle : ''}`}>
         <li>
           <a href="/#">
             <span><RxDashboard /></span>
@@ -46,24 +44,24 @@ const SideBar = ({ isToggle, setIsToggle }) => {
           <a href="/#">
             <span><BiTransferAlt /></span>
             <span> Transaction</span>
-            <span className={`${style.badge} ${isToggle ? style.fadeBadge : ''}`}>2</span>
+            <span className={`${style.badge} ${isToggled ? style.fadeBadge : ''}`}>2</span>
           </a>
         </li>
         <li>
           <a href="/#">
             <span><HiOutlineEnvelope /></span>
             <span>Message</span>
-            <span className={`${style.badge} ${isToggle ? style.fadeBadge : ''}`}>4</span>
+            <span className={`${style.badge} ${isToggled ? style.fadeBadge : ''}`}>4</span>
           </a>
         </li>
       </ul>
-      <ul className={`${style.sidbarMangeMenu} ${isToggle ? style.fadeMenuMangeTitle : ''}`}>
+      <ul className={`${style.sidbarMangeMenu} ${isToggled ? style.fadeMenuMangeTitle : ''}`}>
         <p>Account</p>
         <li>
           <a href="/#">
             <span><AiOutlineSetting /></span>
             <span>Setting</span>
-            <span className={`${style.badge} ${isToggle ? style.fadeBadge : ''}`}>2</span>
+            <span className={`${style.badge} ${isToggled ? style.fadeBadge : ''}`}>2</span>
           </a>
         </li>
         <li>
@@ -83,4 +81,4 @@ const SideBar = ({ isToggle, setIsToggle }) => {
   )
 }
 
-export default WithActive(SideBar)
+export default SideBar

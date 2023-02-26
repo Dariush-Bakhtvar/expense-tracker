@@ -1,12 +1,12 @@
 import { useState } from 'react'
-const WithActive = (WrappedComponent) => {
+const WithToggle = (WrappedComponent) => {
   const UpdatedComponent = (props) => {
-    const [isActive, setIsActive] = useState(false);
-    const setActiveHandler = () => {
-      setIsActive(!isActive);
+    const [isToggle, setIsToggle] = useState(false);
+    const setToggleHandler = () => {
+      setIsToggle(!isToggle);
     }
-    return <WrappedComponent isActive={isActive} setIsActive={setActiveHandler} {...props} />
+    return <WrappedComponent isToggle={isToggle} setIsToggle={setToggleHandler} {...props} />
   }
   return UpdatedComponent;
 }
-export default WithActive
+export default WithToggle

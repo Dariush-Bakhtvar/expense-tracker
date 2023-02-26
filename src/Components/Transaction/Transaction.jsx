@@ -1,9 +1,11 @@
 import React from 'react';
 import { HiOutlinePencilSquare, HiOutlineTrash } from 'react-icons/hi2'
 import style from './transaction.module.scss';
+import { useTheme } from '../Context/ThemeProvider';
 const Transaction = () => {
+  const themeStatus = useTheme();
   return (
-    <div className={style.Transaction}>
+    <div className={`${style.Transaction} ${themeStatus.darkMode ? style.br_darkGary : style.br_lightGray}`}>
       <ul>
         <li className={style.Detail}>
           <span>#123456</span>

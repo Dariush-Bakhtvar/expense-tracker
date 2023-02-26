@@ -9,6 +9,7 @@ import { FiArrowDownRight, FiArrowUpRight } from 'react-icons/fi';
 import { TfiMoreAlt } from 'react-icons/tfi';
 import TransactionList from '../TransactionList/TransactionList';
 import WithActive from '../HOC/WithActive';
+import { useTheme, useThemeAction } from '../Context/ThemeProvider';
 Chart.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 export const options = {
   responsive: true,
@@ -67,25 +68,31 @@ const Linedata = {
     },
   ],
 };
-const Content = ({ isDark, onChangeTheme, isActived }) => {
-  const data = {
-    datasets: [
-      {
-        data: [50, 35, 100],
-        backgroundColor: [
-          "#625BC9",
-          "#21CC9E",
-          '#EFF4F8',
-        ],
-        display: true,
-        borderColor: '#F7F0F5',
-      }
-    ]
-  };
-
+// const data = {
+//   datasets: [
+//     {
+//       data: [50, 35, 100],
+//       backgroundColor: [
+//         "#625BC9",
+//         "#21CC9E",
+//         // '#EFF4F8',
+//         '#A9B0C5'
+//       ],
+//       display: true,
+//       // borderColor: '#F7F0F5',
+//     }
+//   ]
+// };
+const Content = () => {
+  const themeStatus = useTheme();
+  const Dispatch = useThemeAction();
+  const changeThemeHandler = () => {
+    Dispatch({ type: 'Theme' })
+  }
+  const chartMode = themeStatus.darkMode ? '#A9B0C5' : '#EFF4F8';
   return (
-    <main className='Content'>
-      <SearchBar isDark={isDark} onClickHandler={() => onChangeTheme()} />
+    <main className={`Content ${themeStatus.darkMode ? 'DarkTheme' : ''}`}>
+      <SearchBar isDark={themeStatus.darkMode} onClickHandler={changeThemeHandler} />
       {/* welcome section */}
       <section className={style.WellcomeMassage}>
         <div className={style.TextInfo}>
@@ -101,42 +108,42 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
       <section className={style.TransactionWrapper}>
         <section className={style.TotalTransanction}>
           <section className={style.TransactionBox}>
-            <div className={style.totoalBudget}>
-              <div className={style.totoalBudgetInfo}>
-                <div className={style.totoalBudgetDetail}>
-                  <p className={style.IncomeText}>Total Income</p>
+            <div className={`${style.totalBudget} ${themeStatus.darkMode ? style.total_dark : style.total_light}`}>
+              <div className={style.totalBudgetInfo}>
+                <div className={style.totalBudgetDetail}>
+                  <p className={`${style.IncomeText} ${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Light}`}>Total Income</p>
                   <h2>545472</h2>
                   <p>increase compeared to last Week</p>
                 </div>
-                <span><FiArrowUpRight /></span>
+                <span className={`${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Light}`}><FiArrowUpRight /></span>
               </div>
               <button className={style.NoneBtnBg}>
                 <span>See Details</span>
                 <span><HiOutlineChevronDoubleRight /></span>
               </button>
             </div>
-            <div className={style.totoalBudget}>
-              <div className={style.totoalBudgetInfo}>
-                <div className={style.totoalBudgetDetail}>
-                  <p className={style.ExpenseText}>Total Expense</p>
+            <div className={`${style.totalBudget} ${themeStatus.darkMode ? style.total_dark : style.total_light}`}>
+              <div className={style.totalBudgetInfo}>
+                <div className={style.totalBudgetDetail}>
+                  <p className={`${style.ExpenseText} ${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Expense_Light}`}>Total Expense</p>
                   <h2>545472</h2>
                   <p>increase compared to last Week</p>
                 </div>
-                <span className={style.colorRed}><FiArrowDownRight /></span>
+                <span className={`${style.colorRed} ${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Expense_Light}`}><FiArrowDownRight /></span>
               </div>
               <button className={style.NoneBtnBg}>
                 <span>See Details</span>
                 <span><HiOutlineChevronDoubleRight /></span>
               </button>
             </div>
-            <div className={style.totoalBudget}>
-              <div className={style.totoalBudgetInfo}>
-                <div className={style.totoalBudgetDetail}>
+            <div className={`${style.totalBudget} ${themeStatus.darkMode ? style.total_dark : style.total_light}`}>
+              <div className={style.totalBudgetInfo}>
+                <div className={style.totalBudgetDetail}>
                   <p>Total Money</p>
                   <h2>545472</h2>
                   <p>increase compeared to last Week</p>
                 </div>
-                <span><FiArrowUpRight /></span>
+                <span className={`${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Light}`}><FiArrowUpRight /></span>
               </div>
               <button>
                 <span>See Details</span>
@@ -145,12 +152,64 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
             </div>
           </section>
           <section className={style.TransactionCharts}>
-            <div className={style.DetailHistogram}>
-              <Line options={options} data={Linedata} />
+            <div className={`${style.DetailHistogram} ${themeStatus.darkMode ? style.total_dark : style.total_light}`}>
+              <Line options={{
+                responsive: true,
+                plugins: {
+                  legend: {
+                    display: '',// hiden chart title
+                    position: 'left',
+                  },
+                  tooltip: {
+                    enabled: true,
+                    intersect: false,
+                    mode: 'nearest',
+                    yAlign: 'bottom',
+                    titleColor: '#3B3B61',
+                    bodyColor: '#3B3B61',
+                    callbacks: {
+                      labelColor: function (tooltipItem, chart) {
+                        return {
+                          backgroundColor: '#625BC9',
+                        }
+                      },
+                    },
+                    backgroundColor: 'rgb(255,255,255)',
+                  },
+                  title: {
+                    // display: '',
+                    fontFamily: 'Source Sans Pro',
+                    fontSize: 14,
+                    color: themeStatus.darkMode ? '#A9B0C5' : '#3B3B61',
+                    display: true,// hiden chart title
+                    text: 'Daily Analytics',
+                    position: 'top',
+                    align: 'start',
+                    padding: {
+                      top: 15,
+                      bottom: 30,
+                    }
+                  },
+                  borderColor: '#fff',
+                },
+              }} data={Linedata} />
             </div>
-            <div className={style.totoalChart}>
+            <div className={`${style.totalChart} ${themeStatus.darkMode ? style.total_dark : style.total_light}`}>
               <Doughnut
-                data={data}
+                data={{
+                  datasets: [
+                    {
+                      data: [50, 35, 100],
+                      backgroundColor: [
+                        "#625BC9",
+                        "#21CC9E",
+                        chartMode,
+                      ],
+                      display: true,
+                      borderColor: '#F7F0F5',
+                    }
+                  ]
+                }}
                 options={{
                   plugins: {
                     legend: {
@@ -168,14 +227,14 @@ const Content = ({ isDark, onChangeTheme, isActived }) => {
                 }}
               />
               <div className={style.totalChartHeader}>
-                <p>Total Chart</p>
+                <p className={`${themeStatus.darkMode ? style.Light_text : style.Dark_text}`}>Total Chart</p>
                 <span>
                   <TfiMoreAlt />
                 </span>
               </div>
-              <div className={style.totoalChartInfo}>
+              <div className={style.totalChartInfo}>
                 <p>Total Budget</p>
-                <p>54589</p>
+                <p className={`${themeStatus.darkMode ? style.Light_text : style.Dark_text}`}>54589</p>
               </div>
               <div className={style.totalChartPrice}>
                 <div>
