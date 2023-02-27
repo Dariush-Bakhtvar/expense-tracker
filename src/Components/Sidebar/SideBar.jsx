@@ -55,7 +55,7 @@ const SideBar = ({ isToggled, setIsToggled }) => {
           </a>
         </li>
       </ul>
-      <ul className={`${style.sidbarMangeMenu} ${isToggled ? style.fadeMenuMangeTitle : ''}`}>
+      <ul className={`${style.sidbarMangeMenu} ${isToggled ? style.fadeMenuMangeTitle : ''} ${themeStatus.darkMode ? style.br_darkGray : style.br_lightGray}`}>
         <p>Account</p>
         <li>
           <a href="/#">

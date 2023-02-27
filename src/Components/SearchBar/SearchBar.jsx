@@ -18,7 +18,7 @@ const SearchBar = ({ isDark, onClickHandler }) => {
       </div>
       <form action="#">
         <div className={style.SearchWrapper}>
-          <input type="text" placeholder='search or type keyworad' className={`${isDark ? style.DarkTheme : ''}`} />
+          <input type="text" placeholder='search or type keyworad' className={`${isDark ? style.DarkInput : style.LightInput}`} />
           <span><RiSearchLine /></span>
         </div>
       </form>

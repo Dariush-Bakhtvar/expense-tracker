@@ -240,17 +240,21 @@ height: 70px;
   width: 100%;
   // padding-left: 20px;
 }
-.NoneBtnBg{
-  border-top: 1px solid $border-color !important;
+.Btn_BgTranparent{
   background-color: transparent !important;
   color: $primery-gray !important;
-  transition: color 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   &:hover{
     color: $primery-Blue !important;
     transition: color 0.5s ease-in-out;
   }
 }
-
+.br_light{
+ border-top: 1px solid $border-color !important;
+}
+.br_dark{
+  border-top: 1px solid $primery-Color !important;
+}
 %common_titlestyel{
   width: 90px;
 display: flex;

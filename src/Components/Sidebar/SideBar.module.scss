@@ -169,7 +169,6 @@
 .sidbarMangeMenu{
   height: 200px;
  @extend %MenuStyle;
- border-top: 1px solid #efefef;
  padding-top: 10px;
  transition: 1s ease;
  @include media-XScreen($Tablets){
@@ -197,6 +196,8 @@
     height: 175px;
   }
 }
+.br_lightGray{border-top: 1px solid #efefef;}
+.br_darkGray{border-top: 1px solid $primery-Color;}
 .Toggle{
   width: 20px;
   height: 20px;

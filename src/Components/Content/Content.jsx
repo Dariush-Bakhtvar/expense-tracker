@@ -117,7 +117,7 @@ const Content = () => {
                 </div>
                 <span className={`${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Light}`}><FiArrowUpRight /></span>
               </div>
-              <button className={style.NoneBtnBg}>
+              <button className={`${style.Btn_BgTranparent} ${themeStatus.darkMode ? style.br_dark : style.br_light}`}>
                 <span>See Details</span>
                 <span><HiOutlineChevronDoubleRight /></span>
               </button>
@@ -131,7 +131,7 @@ const Content = () => {
                 </div>
                 <span className={`${style.colorRed} ${themeStatus.darkMode ? style.Bg_Dark : style.Bg_Expense_Light}`}><FiArrowDownRight /></span>
               </div>
-              <button className={style.NoneBtnBg}>
+              <button className={`${style.Btn_BgTranparent} ${themeStatus.darkMode ? style.br_dark : style.br_light}`}>
                 <span>See Details</span>
                 <span><HiOutlineChevronDoubleRight /></span>
               </button>
