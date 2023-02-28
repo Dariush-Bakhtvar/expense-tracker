@@ -52,11 +52,9 @@ input[type='text']{
   transition: all 1s ease;
   color: $primery-Blue;
   @include media-XScreen($Mobile){
-    border: 1px solid $primery-gray;
     padding-left: 22px;
   }
   @include media-XScreen($Tablets){
-    border: 1px solid $primery-gray;
     padding-left: 26px;
   }
 &::placeholder{
@@ -129,10 +127,10 @@ span{
       top: 8px;
       border:1px solid #fff;
       @include media-XScreen($Mobile){
-        width: 8px;
-        height: 8px;
-        right: 4px;
-        top: 4px;
+        width: 6px;
+        height: 6px;
+        right: 6px;
+        top: 6px;
       }
     }
     &:nth-child(2){

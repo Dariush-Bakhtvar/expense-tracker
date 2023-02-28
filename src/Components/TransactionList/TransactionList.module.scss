@@ -57,7 +57,7 @@ cursor: pointer;
 
 .TransactionWrapper{
   width: inherit;
-  height: 55*3px;
+  height: calc(55*(3px));
   overflow: auto;
   transition: all 1s ease;
   &::-webkit-scrollbar {
@@ -86,9 +86,15 @@ cursor: pointer;
  &::-webkit-scrollbar-thumb {
   background: #ddd;
  } 
+ &::-webkit-scrollbar-thumb:horizontal {
+  background: #ddd;
+ }
 }
 .scroll_Dark{
 &::-webkit-scrollbar-thumb {
   background:$bg-dark-Tertiary;
 }
+ &::-webkit-scrollbar-thumb:horizontal {
+   background:$bg-dark-Tertiary;
+ }
 }

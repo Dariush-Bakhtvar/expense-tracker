@@ -38,7 +38,8 @@
   height: inherit;
 @include Flex(space-around,center);
 cursor: pointer;
-color:$primery-Color;
+// color:$primery-Color;
+transition: all 1s ease;
 img{
   border-radius: 50%;
   padding: 2px;
@@ -92,8 +93,19 @@ li{
 }
 .DarkTheme{
   background-color: $bg-dark-primery;
-  color: $primery-gray;
+  color: $primery-gray !important;
   border: none;
+  li{
+    border-bottom:1px solid $primery-gray !important;
+      &:hover{
+      color: $primery-gray;
+      background:$bg-dark-Tertiary;
+      transition: all 0.5s ease-in-out;
+    }
+    &:last-child{
+      border-bottom: none !important;
+    }
+  }
 }
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-L) {
   .Navigation,.Profile{
@@ -170,7 +182,7 @@ li{
     border-radius: 3px;
     overflow: hidden;
     li{
-      height: (90px)/3;
+      height:calc((90px)/3);
     }
   }
 }
