@@ -12,7 +12,7 @@ const Navbar = () => {
   }
   return (
     <header className={`Navbar`}>
-      <nav className={`${style.Navigation} ${themeStatus.darkMode && 'DarkTheme'}`}>
+      <nav className={`${style.Navigation} ${themeStatus.darkMode ? 'DarkTheme' : ''}`}>
         <ul>
           <li>Transaction</li>
           <li>Scheduler</li>
@@ -20,8 +20,8 @@ const Navbar = () => {
           {/* <li>Othres</li> */}
         </ul>
       </nav>
-      <div className={`${style.Profile} ${themeStatus.darkMode && 'DarkTheme'}`}>
-        <div className={style.ProfileBtnMenu} onClick={toggleHandler}>
+      <div className={`${style.Profile} ${themeStatus.darkMode ? 'DarkTheme' : ''}`}>
+        <div className={`${style.ProfileBtnMenu} ${themeStatus.darkMode ? style.lightText : ''} `} onClick={toggleHandler}>
           <img src={require('../../Asset/img/Dariush.jpg')} alt="Profile" />
           <span>Dariush Bakhtvar</span>
           <BiChevronDown />

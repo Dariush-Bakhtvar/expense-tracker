@@ -39,6 +39,7 @@
 @include Flex(space-around,center);
 cursor: pointer;
 color:$primery-Color;
+transition: all 1s ease;
 img{
   border-radius: 50%;
   padding: 2px;
@@ -94,6 +95,9 @@ li{
   background-color: $bg-dark-primery;
   color: $primery-gray;
   border: none;
+}
+.lightText{
+  color: $primery-gray;
 }
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-L) {
   .Navigation,.Profile{

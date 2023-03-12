@@ -91,4 +91,7 @@ cursor: pointer;
 &::-webkit-scrollbar-thumb {
   background:$bg-dark-Tertiary;
 }
+&::-webkit-scrollbar-thumb:horizontal {
+  background:$bg-dark-Tertiary;
+}
 }
