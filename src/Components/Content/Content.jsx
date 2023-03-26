@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import style from './Content.module.scss';
 // import faker from 'faker';
@@ -10,6 +10,7 @@ import { TfiMoreAlt } from 'react-icons/tfi';
 import TransactionList from '../TransactionList/TransactionList';
 import WithActive from '../HOC/WithActive';
 import { useTheme, useThemeAction } from '../Context/ThemeProvider';
+import NewTransaction from '../NewTransition/NewTransaction';
 Chart.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 export const options = {
   responsive: true,
@@ -84,10 +85,18 @@ const Linedata = {
 //   ]
 // };
 const Content = () => {
+  const [transaction, setTransaction] = useState(false);
   const themeStatus = useTheme();
   const Dispatch = useThemeAction();
+  useEffect(() => {
+    transaction ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
+  }, [transaction]);
   const changeThemeHandler = () => {
     Dispatch({ type: 'Theme' })
+  }
+  const newTransactionHandler = () => {
+    setTransaction(!transaction);
+    console.log(transaction);
   }
   const chartMode = themeStatus.darkMode ? '#A9B0C5' : '#EFF4F8';
   return (
@@ -99,10 +108,13 @@ const Content = () => {
           <h3>hi,dariush bakhtvar</h3>
           <p>welcome back to budget</p>
         </div>
-        <button className={style.newBudgetBtn}>
+        <button className={style.newBudgetBtn} onClick={newTransactionHandler}>
           <span>New Transaction</span>
           <span><HiPlusSm /></span>
         </button>
+        {
+          transaction && <NewTransaction />
+        }
       </section>
       {/* Transanction Detail and chanrt */}
       <section className={style.TransactionWrapper}>
